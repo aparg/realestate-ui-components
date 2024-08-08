@@ -1,7 +1,17 @@
-import { Inter } from "next/font/google";
+// import { Inter } from "next/font/google";
 import "./globals.css";
+import { Montserrat } from "next/font/google";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
+// const montserrat = Montserrat({ subsets: ["latin"], weight: "400" });
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  variants: ["100", "300", "400", "500", "600", "700", "800", "900"], // to have all the font weights available
+  style: ["normal"],
+  weight: ["400", "700"], // Adjust based on how wide you want it
+  display: "swap",
+  variant: "alternates",
+});
 
 export const metadata = {
   title: "Create Next App",
@@ -11,7 +21,13 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body
+        className={
+          montserrat.className + "bg-white text-black mx-auto max-w-[90%]"
+        }
+      >
+        {children}
+      </body>
     </html>
   );
 }
