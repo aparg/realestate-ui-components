@@ -4,7 +4,7 @@ import Link from "next/link";
 import { ImSpinner } from "react-icons/im";
 
 const FiltersWithSalesList = dynamic(
-  () => import("@/components/reso/FiltersWithSalesList"),
+  () => import("@/components/FiltersWithSalesList"),
   {
     ssr: false,
     loading: () => (

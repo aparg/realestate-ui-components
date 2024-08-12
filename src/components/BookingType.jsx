@@ -17,7 +17,7 @@ const BookingTypeOption = ({ selected, opt, handleChange, setSelected }) => {
   return (
     <button
       className={`rounded-full py-1 px-4 ${
-        selected && `bg-lime-50 border-2 border-black`
+        selected && `bg-light-lime-50 border-2 border-black`
       }`}
       onClick={(e) => {
         handleChange(e);

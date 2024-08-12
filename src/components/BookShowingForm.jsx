@@ -59,14 +59,12 @@ export default function BookShowingForm(props) {
   }, []);
   return (
     <div
-      className="fixed-title pe-0 top-30 sticky pl-4 mt-24 sm:mt-0"
+      className="fixed-title pe-0 top-30 sticky mt-24 shadow-lg"
       id="contact"
     >
-      <div className="p-6 pb-0 box-shadow-custom rounded-mine bordt bg-white border-[#e8e9ea] flex-col items-center">
-        <h5 className="font-extrabold text-center linem fs-3 mb-0">
-          Book a Showing!
-        </h5>
-        <p className="text-center pt-0 cardd-subtitle_bg-black text-[1.1rem]">
+      <div className="p-6 pb-0 box-shadow-custom rounded-mine bordt bg-white border-[#e8e9ea] flex-col items-center sticky">
+        <h5 className="font-extrabold text-center text-3xl">Book a Showing!</h5>
+        <p className="text-center  text-[1.1rem]">
           {/* with a {credentials.city}{" "}
           <span className="font-bold pr-1">Buyer's</span>
           agent */}
@@ -80,7 +78,7 @@ export default function BookShowingForm(props) {
           onSubmit={(e) => handleFormSubmit(e)}
           id="contactForm"
         >
-          <div className="row-cols-12 g-1 me-0">
+          <div className="w-full">
             <div className="relative mb-3">
               <input
                 type="text"
@@ -139,14 +137,13 @@ export default function BookShowingForm(props) {
                 </div>
               </div>
             </div> */}
-            <div className="row me-0 g-0">
+            <div className="w-full">
               <div className="mb-3">
                 <textarea
                   id="message"
                   name="message"
-                  className="fields fff text-gray-500"
+                  className="w-full text-gray-500"
                   rows="2"
-                  cols="50"
                   value={credentials.message}
                   onChange={(e) => handleChange(e)}
                 ></textarea>
@@ -166,8 +163,8 @@ export default function BookShowingForm(props) {
 
           <div></div>
 
-          <div className="row me-0">
-            <div className="mb-3 flex items-start">
+          <div className="mb-3">
+            <div className="">
               {/* <Checkbox
                 defaultSelected
                 color="success"
@@ -176,7 +173,7 @@ export default function BookShowingForm(props) {
                 className="flex"
                 style={{ alignItems: "flex-start !important" }}
               ></Checkbox> */}
-              <p className="showing-info showing-info__cb leading-tight text-center">
+              <p className="text-gray-400 text-xs text-justify">
                 I would like to receive marketing and promotional messages by
                 telephone, text message, and email from Fara, including
                 information and updates about properties of interest and the
@@ -189,7 +186,7 @@ export default function BookShowingForm(props) {
           <input
             type="submit"
             value={submitbtn}
-            className="btn !bg-primary-green !text-white btn-md w-75 mb-3 rounded-full text-lg font-bold"
+            className="px-4 py-2 !bg-primary-green !text-white px-4 py-2-md w-75 mb-3 rounded-full text-lg font-bold"
             id="subbtn"
           />
           <div className="border-b border-gray-300 my-4 w-full"></div>

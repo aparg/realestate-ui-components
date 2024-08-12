@@ -78,31 +78,28 @@ export default function MortgageCalculator(props) {
 
   return (
     <div id="mortgageCalculator" className="mt-8">
-      <h2 className=" text-6xl font-bold text-center mb-4">
-        Mortgage Calculator
-      </h2>
       <div className="flex flex-col justify-start">
         <div className="flex flex-col px-auto items-center mt-10">
-          <div className="my-3 d-block d-sm-none">
+          <div className="my-3 block sm:hidden">
             <h3 className="fs-2">
               ${calculated} <span className="fs-5 text-secondary">/mo</span>
             </h3>
           </div>
-          <div className="w-[40%] ">
-            <div className="row row-cols-1 row-cols-sm-2">
-              <div className="col-sm-4 flex align-items-center">
+          <div className="w-full ">
+            <div className="grid grid-cols-2 sm:grid-cols-3">
+              <div className="sm:col-span-1 flex items-center">
                 <label className="mortlabel" htmlFor="hvalue">
                   Home Value :
                 </label>
               </div>
-              <div className="col-sm-8">
-                <div className="input-group">
-                  <span className="input-group-text bg-light" id="basic-addon1">
+              <div className="sm:col-span-2">
+                <div className="w-full flex justify-stretch border-2 rounded-md">
+                  <span className="p-3 bg-gray-100" id="basic-addon1">
                     $
                   </span>
                   <input
                     type="text"
-                    className="form-control"
+                    className="py-2 px-2 "
                     aria-describedby="basic-addon1"
                     id="hvalue"
                     value={calculatordata.hvalue}
@@ -111,47 +108,47 @@ export default function MortgageCalculator(props) {
                 </div>
               </div>
             </div>
-            <div className="row row-cols-1 row-cols-sm-2 my-3">
-              <div className="col-sm-4 flex align-items-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3 my-3">
+              <div className="col-sm-4 flex items-center">
                 <label htmlFor="dpay" className="mortlabel">
                   Down Payment :
                 </label>
               </div>
-              <div className="col-sm-8">
-                <div className="input-group">
-                  <span className="input-group-text  bg-light">$</span>
+              <div className="sm:col-span-2">
+                <div className="w-full flex justify-stretch border-2 rounded-md">
+                  <span className="p-3  bg-gray-100">$</span>
                   <input
                     type="text"
-                    className="form-control"
+                    className="py-2 px-2 flex-grow"
                     id="dpay"
                     value={calculatordata.dpay}
                     onChange={handleChange}
                   />
                   <input
                     type="number"
-                    className="form-control"
+                    className="py-2 px-2 flex-grow"
                     id="dper"
                     value={calculatordata.dper}
                     onChange={handleChange}
                   />
-                  <span className="input-group-text rounn bg-light">%</span>
+                  <span className="p-3 rounn bg-gray-100">%</span>
                 </div>
               </div>
             </div>
-            <div className="row row-cols-1 row-cols-sm-2  my-3">
-              <div className="col-sm-4 flex align-items-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3  my-3">
+              <div className="col-sm-4 flex items-center">
                 <label htmlFor="loanamt" className="mortlabel">
                   Mortgage Amt :
                 </label>
               </div>
-              <div className="col-sm-8">
-                <div className="input-group">
-                  <span className="input-group-text bg-light" id="basic-addon2">
+              <div className="sm:col-span-2">
+                <div className="w-full flex justify-stretch border-2 rounded-md">
+                  <span className="p-3 bg-gray-100" id="basic-addon2">
                     $
                   </span>
                   <input
                     type="text"
-                    className="form-control"
+                    className="py-2 px-2 flex-grow"
                     aria-describedby="basic-addon2"
                     id="loanamt"
                     value={calculatordata.loanamt}
@@ -160,52 +157,52 @@ export default function MortgageCalculator(props) {
                 </div>
               </div>
             </div>
-            <div className="row row-cols-1 row-cols-sm-2  my-3">
-              <div className="col-sm-4 flex align-items-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3  my-3">
+              <div className="col-sm-4 flex items-center">
                 <label htmlFor="intrate" className="mortlabel">
                   Interest Rate :
                 </label>
               </div>
-              <div className="col-sm-8">
-                <div className="input-group">
+              <div className="sm:col-span-2">
+                <div className="w-full flex justify-stretch border-2 rounded-md">
                   <input
                     type="number"
-                    className="form-control"
+                    className="py-2 px-2 flex-grow"
                     aria-describedby="basic-addon3"
                     id="intrate"
                     value={calculatordata.intrate}
                     onChange={handleChange}
                   />
-                  <span className="input-group-text bg-light" id="basic-addon3">
+                  <span className="p-3 bg-gray-100" id="basic-addon3">
                     %
                   </span>
                 </div>
               </div>
             </div>
-            <div className="row row-cols-1 row-cols-sm-2  my-3">
-              <div className="col-sm-4 flex align-items-center">
+            <div className="grid grid-cols-2 sm:grid-cols-3  my-3">
+              <div className="col-sm-4 flex items-center">
                 <label htmlFor="loanterm" className="mortlabel">
                   Mortgage Term :
                 </label>
               </div>
-              <div className="col-sm-8">
-                <div className="input-group">
+              <div className="sm:col-span-2">
+                <div className="w-full flex justify-stretch border-2 rounded-md">
                   <input
                     type="number"
-                    className="form-control"
+                    className="py-2 px-2 flex-grow"
                     aria-describedby="basic-addon4"
                     id="loanterm"
                     value={calculatordata.loanterm}
                     onChange={handleChange}
                   />
-                  <span className="input-group-text bg-light" id="basic-addon4">
+                  <span className="p-3 bg-gray-100" id="basic-addon4">
                     Yrs
                   </span>
                 </div>
               </div>
             </div>
           </div>
-          <div className="rounded-mine bg-light flex align-items-center flex-column flex-md-row mb-4">
+          <div className="rounded-mine bg-gray-100 flex items-center flex-column flex-md-grid mb-4">
             <div className="p-3 rounded-mine">
               <h3 className="fs-2 font-bold text-mine">
                 ${calculated} <span className="fs-5 text-secondary">/mo</span>

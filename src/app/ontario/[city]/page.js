@@ -8,7 +8,7 @@ import { ImSpinner } from "react-icons/im";
 import { plural } from "@/constant/plural";
 
 const FiltersWithSalesList = dynamic(
-  () => import("@/components/reso/FiltersWithSalesList"),
+  () => import("@/components/FiltersWithSalesList"),
   {
     ssr: false,
     loading: () => (

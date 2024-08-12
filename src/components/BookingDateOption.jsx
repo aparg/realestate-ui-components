@@ -9,7 +9,7 @@ const BookingDateOption = React.forwardRef(
           className={`flex flex-col w-full h-full justify-center  items-center mr-1 rounded-md cursor-pointer overflow-clip ${
             selected
               ? `bg-light-lime border-black border-2 text-black`
-              : `border-gray-400 border-1 text-gray-800 `
+              : `border-gray-400 border-2 text-gray-800 `
           }`}
           ref={ref}
           value={`${

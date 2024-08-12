@@ -14,6 +14,7 @@ import { getFilteredRetsData } from "../../api/getSalesData";
 
 //CONSTANT
 import { saleLease, bedCount, houseType } from "@/constant";
+import ResaleCard from "./ResaleCard";
 
 const SalesList = ({
   salesData,
@@ -87,25 +88,23 @@ const SalesList = ({
         <>
           {salesData.map((curElem, index) => {
             return (
-              <CityResoCard
-                showDecreasedPrice={filterState.priceDecreased}
-                city={city}
-                key={index}
-                curElem={curElem}
-              />
+              // <
+              //   showDecreasedPrice={filterState.priceDecreased}
+              //   city={city}
+              //   key={index}
+              //   curElem={curElem}
+              // />
+              <ResaleCard curElem={curElem} />
             );
             // }
             // return null
           })}
-          <div
-            ref={ref}
-            className="flex justify-content-center align-items-center w-100"
-          >
+          <div ref={ref} className="flex justify-center items-center w-100">
             {isLoading ? <ImSpinner size={24} /> : null}
           </div>
         </>
       ) : (
-        <div className="fs-4 text-center flex w-100 flex-column align-items-center">
+        <div className="fs-4 text-center flex w-100 flex-column items-center">
           <Image
             src="/no-record-found.jpg"
             width="500"

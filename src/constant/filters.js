@@ -4,14 +4,15 @@ export const saleLease = {
   // all: { name: "All", value: undefined },
 };
 
-// export const listingType = {
-//   business: { name: "Business", value: ".B." },
-//   office: { name: "Office", value: ".1." },
-//   retail: { name: "Retail", value: ".Q." },
-//   industrial: { name: "Industrial", value: ".I." },
-//   investment: { name: "Investment", value: ".U." },
-//   land: { name: "Land", value: ".L." },
-// };
+export const houseType = {
+  business: { name: "Business", value: ".B." },
+  office: { name: "Office", value: ".1." },
+  retail: { name: "Retail", value: ".Q." },
+  industrial: { name: "Industrial", value: ".I." },
+  investment: { name: "Investment", value: ".U." },
+  land: { name: "Land", value: ".L." },
+  all: { name: "all", value: "" },
+};
 
 export const listingType = {
   "gas station": { name: "Gas Station", value: "Gas Stations" },
@@ -176,4 +177,22 @@ export const numberOfDays = {
     value: get24HoursAgoTime(),
     userFilter: false,
   },
+};
+
+export const bedCount = {
+  any: { name: "Beds", value: 0 },
+  one: { name: "1 Beds", value: 1 },
+  two: { name: "2 Beds", value: 2 },
+  three: { name: "3 Beds", value: 3 },
+  four: { name: "4 Beds", value: 4 },
+  five: { name: "5 Beds", value: 5 },
+};
+
+export const washroomCount = {
+  any: { name: "Any", value: 0 },
+  one: { name: "1+", value: 1 },
+  two: { name: "2+", value: 2 },
+  three: { name: "3+", value: 3 },
+  four: { name: "4+", value: 4 },
+  five: { name: "5+", value: 5 },
 };

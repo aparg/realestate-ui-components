@@ -134,7 +134,7 @@ const Filters = ({ filterState, setFilterState, fetchFilteredData }) => {
           handleFilterChange={handleFilterChange}
         />
 
-        <div className="bed__filter mr-4 ">
+        <div className="rounded-full overflow-hidden mr-4 ">
           <IndividualFilter
             options={bedCountOptions}
             defaultValue={bedCountOptions[0]}
@@ -146,7 +146,7 @@ const Filters = ({ filterState, setFilterState, fetchFilteredData }) => {
           />
         </div>
 
-        <div className="house-type__filter mr-4 ">
+        <div className="rounded-full overflow-hidden mr-4 ">
           <IndividualFilter
             options={houseTypeOptions}
             defaultValue={houseTypeOptions[0]}
@@ -169,7 +169,7 @@ const Filters = ({ filterState, setFilterState, fetchFilteredData }) => {
             />
           </div>
         ) : null} */}
-        <div className="more__filter">
+        <div className="rounded-full overflow-hidden">
           <MoreFilter
             {...{ washroomCountOptions, additonalFilterChange, filterState }}
           />
@@ -257,7 +257,7 @@ const IndividualFilter = ({
       <DropdownTrigger disableAnimation={true}>
         <Button
           variant="faded"
-          className={`capitalize h-[34px] bg-color roundedPill border-medium-black ${
+          className={`capitalize h-[34px] bg-white rounded-full ${
             isMobileView && "px-2 gap-1 min-w-unit-0"
           } ${
             getSelectedValue(selectedKeys) !== defaultValue &&
@@ -356,108 +356,11 @@ const PriceRangeFilter = ({ name, value, handleFilterChange, minMaxPrice }) => {
             {...props}
             className="p-1 top-50 bg-primary-green border border-secondary rounded-circle shadow cursor-grab"
           >
-            <span className="bg-primary-green shadow rounded-circle w-5 h-5 d-block" />
+            <span className="bg-primary-green shadow rounded-circle w-5 h-5 block" />
           </div>
         );
       }}
     </div>
-    // <Dropdown>
-    //   <DropdownTrigger disableAnimation={true}>
-    //     <Button
-    //       variant="faded"
-    //       className="capitalize bg-color roundedPill h-[34px] border-2"
-    //       size="md"
-    //     >
-    //       {valueToDisplay}
-    //       <i className="bi bi-chevron-down"></i>
-    //     </Button>
-    //   </DropdownTrigger>
-    //   <DropdownMenu
-    //     aria-label="price filter"
-    //     itemClasses={{
-    //       base: ["data-[hover=true]:bg-default-0"],
-    //     }}
-    //   >
-    //     <DropdownSection aria-label="price filter" showDivider>
-    //       <DropdownItem key="price" isReadOnly>
-    //         <p className="font-bold mb-2">
-    //           Filter price based on min and max price
-    //         </p>
-    // <div className="flex gap-3">
-    //   <Input
-    //     type="number"
-    //     label="Min Price"
-    //     className="w-40"
-    //     size="sm"
-    //     variant="underlined"
-    //     value={value?.min}
-    //     min={0}
-    //     onFocus={(event) => event.target.select()}
-    //     onValueChange={(value) => handlePriceChange("min", value)}
-    //     startContent={
-    //       <div className="pointer-events-none flex items-center">
-    //         <span className="text-default-400 text-small">$</span>
-    //       </div>
-    //     }
-    //   />
-    //   <Input
-    //     type="number"
-    //     label="Max Price"
-    //     className="w-40"
-    //     size="sm"
-    //     disabled={price.min <= 0}
-    //     variant="underlined"
-    //     value={value?.max}
-    //     min={value?.min}
-    //     onFocus={(event) => event.target.select()}
-    //     onValueChange={(value) => handlePriceChange("max", value)}
-    //     startContent={
-    //       <div className="pointer-events-none flex items-center">
-    //         <span className="text-default-400 text-small">$</span>
-    //       </div>
-    //     }
-    //   />
-    // </div>
-    // <p className="font-bold mt-4 mb-4">Select min or max price range </p>
-    // <div className="price-range__slider">
-    //   <Slider
-    //     label="Price Range"
-    //     step={50}
-    //     minValue={minMaxPrice.min}
-    //     maxValue={minMaxPrice.max}
-    //     onChangeEnd={handleRangeChange}
-    //     defaultValue={[minMaxPrice.min, minMaxPrice.max]}
-    //     formatOptions={{ style: "currency", currency: "USD" }}
-    //     classNames={{
-    //       filler: "bg-primary-green",
-    //     }}
-    //     renderThumb={(props) => (
-    //       <div
-    //         {...props}
-    //         className="bg-primary-green group p-1 top-1/2 shadow-medium rounded-full cursor-grab data-[dragging=true]:cursor-grabbing"
-    //       >
-    //         <span className="transition-transform shadow-small rounded-full w-3 h-3 block group-data-[dragging=true]:scale-80"></span>
-    //       </div>
-    //     )}
-    //   />
-    //   {(props) => {
-    //     return (
-    //       <div
-    //         {...props}
-    //         className="p-1 top-50 bg-light border border-secondary rounded-circle shadow cursor-grab"
-    //       >
-    //         <span className="bg-primary-green shadow rounded-circle w-5 h-5 d-block" />
-    //       </div>
-    //     );
-    //   }}
-    // </div>
-    //       </DropdownItem>
-    //     </DropdownSection>
-    //     {/* {options.map((option) => {
-    //       return <DropdownItem key={option}>{option}</DropdownItem>
-    //     })} */}
-    //   </DropdownMenu>
-    // </Dropdown>
   );
 };
 
@@ -503,7 +406,7 @@ const MoreFilter = ({
       <Button
         onPress={onOpen}
         variant="faded"
-        className="capitalize h-[34px] bg-color roundedPill border-black"
+        className="capitalize h-[34px] bg-white rounded-full "
         size="md"
       >
         More Filter
@@ -513,16 +416,18 @@ const MoreFilter = ({
         onOpenChange={onOpenChange}
         size="xl"
         className={{
-          footer: "z-999",
+          footer: "z-[999]",
         }}
       >
         <ModalContent>
           {(onClose) => (
             <>
-              <ModalHeader className="flex flex-col gap-1">Filters</ModalHeader>
+              <ModalHeader className="flex flex-col font-bold text-4xl gap-1">
+                Filters
+              </ModalHeader>
               <ModalBody>
                 <div className="basement__bool">
-                  <p className="fs-5 fw-500 mb-2">Basement</p>
+                  <p className="mb-2">Basement</p>
                   <div className="flex gap-5">
                     <Switch
                       isSelected={moreFilterState.hasBasement}
@@ -573,7 +478,7 @@ const MoreFilter = ({
                   </div>
                 </div>
               </ModalBody>
-              <ModalFooter className="w-100 flex">
+              <ModalFooter className="w-full flex">
                 <Button
                   color="secondary"
                   variant="faded"
@@ -673,7 +578,7 @@ const PriceRangeFilterBottom = ({
             formatOptions={{ style: "currency", currency: "USD" }}
             classNames={{
               base: "max-w-md slider gap-3",
-              track: "bg-light border border-secondary",
+              track: "bg-gray-100 border border-secondary",
               filler: "bg-primary-green bg-gradient-to-r",
               value: "font-bold fs-6",
             }}
@@ -681,7 +586,7 @@ const PriceRangeFilterBottom = ({
               return (
                 <div
                   {...props}
-                  className="p-1 top-50 bg-light border border-secondary rounded-circle shadow cursor-grab"
+                  className="p-1 top-50 bg-gray-100 border border-secondary rounded-circle shadow cursor-grab"
                 >
                   <span className="bg-primary-green shadow rounded-circle w-5 h-5 d-block" />
                   {!props["data-pressed"] && (
@@ -766,7 +671,7 @@ const IndividualFilterButton = ({
             ${
               isActive(option)
                 ? `border-primary-green text-white ${bgColor[name]}`
-                : "border-medium-black"
+                : "border-black"
             }`}
             onClick={() => handleClick(name, option)}
             style={{ border: "2px solid #e5e7eb" }}
@@ -797,7 +702,7 @@ const IndividualFilterNoOptions = ({
       className={`px-3 py-1 h-[34px] cursor-pointer text-nowrap text-small h-[34px] flex justify-content-center align-items-center rounded-full border-2 ${
         isActive
           ? "bg-primary-green text-white border-primary-green"
-          : "border-medium-black"
+          : "border-black"
       }`}
       onClick={() => handleClick(name, !value)}
       style={{ border: "2px solid #e5e7eb" }}

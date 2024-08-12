@@ -23,7 +23,7 @@ const FiltersWithSalesList = ({
   requiredType = undefined,
   saleLeaseVal = undefined,
 }) => {
-  const leadEmail = user?.emailAddresses[0].emailAddress;
+  // const leadEmail = user?.emailAddresses[0].emailAddress;
 
   const initialState = {
     saleLease:
@@ -193,7 +193,7 @@ const FiltersWithSalesList = ({
               <div
                 className={`${
                   isMobileView ? "pt-1" : "pt-3"
-                } row row-cols-1 row-cols-md-4 row-cols-xs-1 row-cols-sm-1 row-cols-lg-4 row-cols-xl-5 g-0 gx-md-2 sm:gap-y-[40px]`}
+                } grid grid-cols-1 md:grid-cols-4 xs:grid-cols-1 sm:grid-cols-1 lg:grid-cols-4 xl:grid-cols-5 gap-0 md:gap-x-2 sm:gap-y-[40px]`}
               >
                 <SalesList
                   {...{

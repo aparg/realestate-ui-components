@@ -5,6 +5,7 @@ import { saleLease } from "@/constant";
 import Link from "next/link";
 import PropertyDisplaySection from "@/components/PropertyDisplaySection";
 import { getPreconData } from "../../api/getPreconData";
+import { generateURL } from "@/helpers/generateURL";
 
 export default async function Home() {
   const residentialData = await getFilteredRetsData({
@@ -27,7 +28,7 @@ export default async function Home() {
       <PropertyDisplaySection
         title="Hot Resale Listings"
         subtitle="Explore our resale properties"
-        exploreAllLink="#"
+        exploreAllLink={generateURL({})}
       >
         <Slider data={residentialData} type="resale" />
       </PropertyDisplaySection>

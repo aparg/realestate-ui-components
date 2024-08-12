@@ -29,7 +29,7 @@ const Gallery = ({ data }) => {
           elementClassNames="grid grid-rows-2 grid-cols-4 gap-2"
         >
           <>
-            {data.length > 0 ? (
+            {data?.length > 0 ? (
               data.map((url, index) => (
                 <a
                   href={`${url}`}

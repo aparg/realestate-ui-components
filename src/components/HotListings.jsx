@@ -30,7 +30,7 @@ const HotListings = ({ salesData }) => {
 
   return salesData?.length > 0 ? (
     <div
-      className={`position-relative rounded-xl px-2 z-10 ${
+      className={`relative rounded-xl px-2 z-10 ${
         isMobileView ? "mt-3" : "mt-4"
       }`}
       style={{
@@ -40,9 +40,7 @@ const HotListings = ({ salesData }) => {
     >
       <div className="w-full flex flex-row justify-between">
         <h3
-          className={`main-title fs-2 fs-sm-2 ${
-            isMobileView ? "pt-3" : "pt-4"
-          }`}
+          className={`text-3xl font-bold mw ${isMobileView ? "pt-3" : "pt-4"}`}
         >
           Listed Today!
         </h3>
@@ -57,7 +55,7 @@ const HotListings = ({ salesData }) => {
 
       <div className="overflow-hidden">
         <div
-          className="row row-cols-lg-5 row-cols-md-3 row-cols-1 gx-4 mt-1 mb-4"
+          className="grid lg:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-x-4 mt-1 mb-4"
           id="slider"
           ref={scrollRef}
         >

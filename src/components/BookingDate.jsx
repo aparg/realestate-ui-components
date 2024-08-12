@@ -137,9 +137,9 @@ const BookingDate = ({ bannerImage }) => {
               </button>
               <div className="flex flex-col items-center">
                 <div
-                  className="flex z-0 scroll-container relative w-full overflow-x-scroll"
+                  className="flex z-0 scroll-container relative w-full overflow-x-scroll overscroll-x-none no-scrollbar"
                   style={{ transform: `translateX(${scrollPosition}px) z-0` }}
-                  id="slider"
+                  id=""
                   ref={scrollRef}
                 >
                   {daysArray.map((data) => (
@@ -182,7 +182,7 @@ const BookingDate = ({ bannerImage }) => {
             <input
               type="submit"
               value="Schedule Tour"
-              className="btn bg-primary-green text-white btn-md w-100 mb-3 rounded-full"
+              className="px-4 py-2 bg-primary-green text-white px-4 md:py-2 w-full mb-3 rounded-full hover:cursor-pointer"
               id="subbtn"
               onClick={submitData}
             />

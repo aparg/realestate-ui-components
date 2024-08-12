@@ -19,12 +19,15 @@ export const getSalesData = async (offset, limit, city, listingType) => {
     if (listingType) {
       selectQuery += `,TypeOwnSrch=${listingType}`;
     }
+
+    console.log("fetch url");
+    console.log(url);
     const res = await fetch(url, options);
     const data = await res.json();
     return data.results;
   } catch (error) {
     console.error(error);
-    throw new Error(`An error happened: ${error}`);
+    throw new Error(`An error happened in getSalesData: ${error}`);
   }
 };
 
@@ -154,18 +157,19 @@ export const getFilteredRetsData = async (queryParams) => {
         `?$select=${selectQuery}&$skip=${skipQuery}&$limit=${limitQuery}&$range=${rangeQuery}&$selectOr=${selectOrQuery}`
       );
     }
-    console.log(url);
     const options = {
       method: "GET",
       // cache: "no-store",
     };
+    console.log(url);
     const res = await fetch(url, options);
     const data = await res.json();
     return data.results;
   } catch (error) {
-    throw new Error(`An error happened: ${error}`);
+    throw new Error(`An error happened in getFilteredRetsData: ${error}`);
   }
 };
+
 export const fetchDataFromMLS = async (listingID) => {
   const options = {
     method: "GET",
@@ -174,6 +178,7 @@ export const fetchDataFromMLS = async (listingID) => {
     "$query",
     `?$select=MLS='${listingID}'`
   );
+  console.log(urlToFetchMLSDetail);
   const resMLSDetail = await fetch(urlToFetchMLSDetail, options);
   const data = await resMLSDetail.json();
 

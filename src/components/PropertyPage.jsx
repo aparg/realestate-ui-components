@@ -15,6 +15,7 @@ import { priceFormatter } from "@/helpers/priceFormatter";
 
 const PropertyPage = ({ main_data }) => {
   const [navbar, setNavbar] = useState(false);
+  const [collapse, setCollapse] = useState(true);
   const { isMobileView } = useDeviceView();
   const getCommunityFeatures = () => {
     const {
@@ -98,7 +99,7 @@ const PropertyPage = ({ main_data }) => {
     <>
       <div className="screenshot col-12 mt-4">
         <div
-          className={`border-0  rounded-3 ${
+          className={`border-0  rounded-md ${
             isMobileView ? "sm:p-4 pt-3 mt-3" : "mt-5"
           }`}
         >
@@ -111,7 +112,7 @@ const PropertyPage = ({ main_data }) => {
               <div className="flex items-center">
                 <div className="flex flex-col">
                   <div className="flex flex-col items-start">
-                    <div className="flex flex-row items-center">
+                    <div className="flex flex-grid items-center">
                       <h3 className="text-5xl font-bold fs-1">C{price}</h3>
                       <div className="flex items-center">
                         <Image
@@ -207,65 +208,85 @@ const PropertyPage = ({ main_data }) => {
         {/* <div className="border-b border-[0.5px] border-gray-200 mt-2 sm:mt-0 sm:ml-4"></div> */}
         {/* Description */}
         <div className={`${isMobileView ? "pt-4 mt-8" : "mt-8 pt-4"}`}>
-          <div className="border border-0 rounded-3 bg-light p-3 sm:p-4">
+          <div className="border border-0 rounded-md bg-gray-100 p-3 sm:p-4">
             <h2 className="font-extrabold text-2xl sm:text-4xl">Description</h2>
             <p className="text-lg pty-description pt-2 pb-4 leading-8">
               {main_data.RemarksForClients}
             </p>
-            <div
-              className={`row row-cols-2  row-cols-md-4 w-100 ${
-                isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+            {/* <div
+              className={`grid grid-cols-2  grid-cols-md-4 w-100 ${
+                isMobileView ? "flex-wrap" : "flex-nowrap "
               }`}
             >
-              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                 <p className="cardd-subtitle_bg-black font-bold">
                   Last check for updates
                 </p>
               </div>
-              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                 <p className="cardd-subtitle_bg-black">
                   <TimeAgo modificationTimestamp={main_data.TimestampSql} />
                 </p>
               </div>
-              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                 <p className="cardd-subtitle_bg-black font-bold">
                   Property type
                 </p>
               </div>
-              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                 <p className="cardd-subtitle_bg-black">
                   {main_data.TypeOwn1Out}
                 </p>
               </div>
-            </div>
+            </div> */}
 
             <div
-              className={`row row-cols-2  row-cols-md-4 w-100 ${
-                isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+              className={`grid grid-cols-2 md:grid-cols-4 w-full ${
+                isMobileView ? "flex-wrap" : "flex-nowrap"
               }`}
             >
-              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+              <div className="col-span-1 md:col-span-1 border-b border-gray-200 py-2 md:py-3 pr-0">
+                <p className="font-bold text-black">Last check for updates</p>
+              </div>
+              <div className="col-span-1 md:col-span-1 border-b border-gray-200 py-2 md:py-3 pl-0">
+                <p className="text-black">
+                  <TimeAgo modificationTimestamp={main_data.TimestampSql} />
+                </p>
+              </div>
+              <div className="col-span-1 md:col-span-1 border-b border-gray-200 py-2 md:py-3 pr-0">
+                <p className="font-bold text-black">Property type</p>
+              </div>
+              <div className="col-span-1 md:col-span-1 border-b border-gray-200 py-2 md:py-3 pl-0">
+                <p className="text-black">{main_data.TypeOwn1Out}</p>
+              </div>
+            </div>
+            <div
+              className={`grid grid-cols-2  md:grid-cols-4 w-100 ${
+                isMobileView ? "flex-wrap" : "flex-nowrap "
+              }`}
+            >
+              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                 <p className="cardd-subtitle_bg-black font-bold">Style </p>
               </div>
-              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                 <p className="cardd-subtitle_bg-black">{main_data.Style}</p>
               </div>
-              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                 <p className="cardd-subtitle_bg-black font-bold">Community</p>
               </div>
-              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                 <p className="cardd-subtitle_bg-black">{main_data.Community}</p>
               </div>
             </div>
             <div
-              className={`row row-cols-2  row-cols-md-4 w-100 ${
-                isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+              className={`grid grid-cols-2  md:grid-cols-4 w-100 ${
+                isMobileView ? "flex-wrap" : "flex-nowrap "
               }`}
             >
-              <div className="col-7 col-md border-b-[0.1px] border-gray-200 border-sm py-2 py-md-3 pr-0">
+              <div className="col-7 col-md border-b-[0.1px] border-gray-200 border-sm py-2 md:py-3 pr-0">
                 <p className="cardd-subtitle_bg-black font-bold">Lot size</p>
               </div>
-              <div className="col-5 col-md border-b-[0.1px] border-gray-200 border-sm py-2 py-md-3 pl-0">
+              <div className="col-5 col-md border-b-[0.1px] border-gray-200 border-sm py-2 md:py-3 pl-0">
                 <p className="cardd-subtitle_bg-black">
                   {formatNumber(
                     (main_data.LotDepth * main_data.LotFront).toFixed(0)
@@ -273,12 +294,12 @@ const PropertyPage = ({ main_data }) => {
                   Sqft
                 </p>
               </div>
-              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                 <p className="cardd-subtitle_bg-black font-bold">
                   Garage spaces
                 </p>
               </div>
-              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                 <p className="cardd-subtitle_bg-black">
                   {formatNumber(main_data.GarageSpaces)}
                 </p>
@@ -291,33 +312,33 @@ const PropertyPage = ({ main_data }) => {
         <div
           className={`${isMobileView ? "pt-4 pb-4 mt-8" : "mt-8 pt-4 pb-4"}`}
         >
-          <div className="p-4 rounded-3 bg-light rounded-3 border-0">
+          <div className="p-4 rounded-md bg-gray-100  border-0">
             <h2 className="font-extrabold pb-3 text-2xl sm:text-4xl">
               Home Overview
             </h2>
             <div
-              className={`row row-cols-2  row-cols-md-4 w-100 ${
-                isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+              className={`grid grid-cols-2  md:grid-cols-4 w-100 ${
+                isMobileView ? "flex-wrap" : "flex-nowrap "
               }`}
             >
-              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                 <p className="cardd-subtitle_bg-black font-bold">
                   Basement information
                 </p>
               </div>
-              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                 <p className="cardd-subtitle_bg-black">
                   {main_data?.Basement1
                     ? `${main_data?.Basement1}, ${main_data?.Basement2}`
                     : "None"}
                 </p>
               </div>
-              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                 <p className="cardd-subtitle_bg-black font-bold">
                   Virtual tour
                 </p>
               </div>
-              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                 <p className="cardd-subtitle_bg-black">
                   <a href={main_data.VirtualTourURL} target="_blank">
                     Tour Now
@@ -327,22 +348,22 @@ const PropertyPage = ({ main_data }) => {
             </div>
 
             <div
-              className={`row row-cols-2  row-cols-md-4 w-100 ${
-                isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+              className={`grid grid-cols-2  md:grid-cols-4 w-100 ${
+                isMobileView ? "flex-wrap" : "flex-nowrap "
               }`}
             >
-              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                 <p className="cardd-subtitle_bg-black font-bold">Mls® #</p>
               </div>
-              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                 <p className="cardd-subtitle_bg-black">{main_data.MLS}</p>
               </div>
-              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                 <p className="cardd-subtitle_bg-black font-bold">
                   Building size
                 </p>
               </div>
-              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                 <p className="cardd-subtitle_bg-black">
                   {main_data.ApproxSquareFootage}
                 </p>
@@ -350,24 +371,24 @@ const PropertyPage = ({ main_data }) => {
             </div>
 
             <div
-              className={`row row-cols-2  row-cols-md-4 w-100 ${
-                isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+              className={`grid grid-cols-2  md:grid-cols-4 w-100 ${
+                isMobileView ? "flex-wrap" : "flex-nowrap "
               }`}
             >
-              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                 <p className="cardd-subtitle_bg-black font-bold">Status</p>
               </div>
-              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                 <p className="cardd-subtitle_bg-black">
                   {main_data.Status === "A" ? "Active" : "In-Active"}
                 </p>
               </div>
-              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                 <p className="cardd-subtitle_bg-black font-bold">
                   Property sub type
                 </p>
               </div>
-              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                 <p className="cardd-subtitle_bg-black">
                   {/* {main_data.PropertySubType} */}
                 </p>
@@ -375,71 +396,74 @@ const PropertyPage = ({ main_data }) => {
             </div>
 
             <div
-              className={`row row-cols-2  row-cols-md-4 w-100 ${
-                isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+              className={`grid grid-cols-2  md:grid-cols-4 w-100 ${
+                isMobileView ? "flex-wrap" : "flex-nowrap "
               }`}
             >
-              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                 <p className="cardd-subtitle_bg-black font-bold">Taxes</p>
               </div>
-              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                 <p className="cardd-subtitle_bg-black">{TaxAnnualAmount}</p>
               </div>
-              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                 <p className="cardd-subtitle_bg-black font-bold">Tax year</p>
               </div>
-              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                 <p className="cardd-subtitle_bg-black">{main_data.TaxYear}</p>
               </div>
             </div>
 
             <div
-              className={`row row-cols-2  row-cols-md-4 w-100 ${
-                isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+              className={`grid grid-cols-2  md:grid-cols-4 w-100 ${
+                isMobileView ? "flex-wrap" : "flex-nowrap "
               }`}
             >
-              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                 <p className="cardd-subtitle_bg-black font-bold">
                   Maintenance fee
                 </p>
               </div>
-              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                 <p className="cardd-subtitle_bg-black">{AssociationFee}</p>
               </div>
-              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+              <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                 <p className="cardd-subtitle_bg-black font-bold">Year built</p>
               </div>
-              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+              <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                 <p className="cardd-subtitle_bg-black">
                   {main_data.AssessmentYear || "--"}
                 </p>
               </div>
             </div>
 
-            <div className="collapse" id="collapseExample">
+            <div
+              className={`block ${collapse ? "hidden" : "block"}`}
+              id="collapseExample"
+            >
               {/* Interior */}
               <h5 className="py-2 font-bold pt-5">Interior</h5>
               <div
-                className={`row row-cols-2  row-cols-md-4 w-100 ${
-                  isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+                className={`grid grid-cols-2  md:grid-cols-4 w-100 ${
+                  isMobileView ? "flex-wrap" : "flex-nowrap "
                 }`}
               >
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">
                     # total bathrooms
                   </p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">
                     {main_data.Washrooms}
                   </p>
                 </div>
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">
                     # Full baths
                   </p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">
                     {main_data.Washrooms}
                   </p>
@@ -447,26 +471,26 @@ const PropertyPage = ({ main_data }) => {
               </div>
 
               <div
-                className={`row row-cols-2  row-cols-md-4 w-100 ${
-                  isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+                className={`grid grid-cols-2  md:grid-cols-4 w-100 ${
+                  isMobileView ? "flex-wrap" : "flex-nowrap "
                 }`}
               >
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">
                     # of above grade bedrooms
                   </p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">
                     {main_data.Bedrooms}
                   </p>
                 </div>
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">
                     # of rooms
                   </p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">
                     {Number(main_data.Rooms) + Number(main_data.RoomsPlus)}
                   </p>
@@ -474,26 +498,26 @@ const PropertyPage = ({ main_data }) => {
               </div>
 
               <div
-                className={`row row-cols-2  row-cols-md-4 w-100 ${
-                  isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+                className={`grid grid-cols-2  md:grid-cols-4 w-100 ${
+                  isMobileView ? "flex-wrap" : "flex-nowrap "
                 }`}
               >
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">
                     Family room available
                   </p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">
                     {Boolean(Number(main_data.FamilyRoom) > 0) ? "Yes" : "No"}
                   </p>
                 </div>
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">
                     Laundry information
                   </p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">
                     {main_data.LaundryLevel}
                   </p>
@@ -503,26 +527,26 @@ const PropertyPage = ({ main_data }) => {
               {/* Exterior */}
               <h5 className="py-2 font-bold pt-5">Exterior</h5>
               <div
-                className={`row row-cols-2  row-cols-md-4 w-100 ${
-                  isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+                className={`grid grid-cols-2  grid-cols-md-4 w-100 ${
+                  isMobileView ? "flex-wrap" : "flex-nowrap "
                 }`}
               >
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">
                     Construction materials
                   </p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">
                     {main_data.Exterior1}
                   </p>
                 </div>
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">
                     Other structures
                   </p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">
                     {main_data.OtherStructures1}
                   </p>
@@ -530,26 +554,26 @@ const PropertyPage = ({ main_data }) => {
               </div>
 
               <div
-                className={`row row-cols-2  row-cols-md-4 w-100 ${
-                  isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+                className={`grid grid-cols-2  grid-cols-md-4 w-100 ${
+                  isMobileView ? "flex-wrap" : "flex-nowrap "
                 }`}
               >
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">
                     # garage spaces
                   </p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">
                     {formatNumber(main_data.GarageSpaces)}
                   </p>
                 </div>
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">
                     # parking spaces
                   </p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">
                     {main_data.ParkingSpaces}
                   </p>
@@ -557,26 +581,26 @@ const PropertyPage = ({ main_data }) => {
               </div>
 
               <div
-                className={`row row-cols-2  row-cols-md-4 w-100 ${
-                  isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+                className={`grid grid-cols-2  grid-cols-md-4 w-100 ${
+                  isMobileView ? "flex-wrap" : "flex-nowrap "
                 }`}
               >
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">
                     Garage features
                   </p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">
                     {main_data.GarageType}
                   </p>
                 </div>
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">
                     Has basement (y/n)
                   </p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">
                     {main_data.Basement1 ? "Yes" : "No"}
                   </p>
@@ -584,24 +608,24 @@ const PropertyPage = ({ main_data }) => {
               </div>
 
               <div
-                className={`row row-cols-2  row-cols-md-4 w-100 ${
-                  isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+                className={`grid grid-cols-2  grid-cols-md-4 w-100 ${
+                  isMobileView ? "flex-wrap" : "flex-nowrap "
                 }`}
               >
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">
                     Has garage (y/n)
                   </p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">
                     {main_data.GarageType ? "Yes" : "No"}
                   </p>
                 </div>
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">Drive</p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">{main_data.Drive}</p>
                 </div>
               </div>
@@ -609,46 +633,46 @@ const PropertyPage = ({ main_data }) => {
               {/* Amenities / Utilities */}
               <h5 className="py-2 font-bold pt-5">Amenities / Utilities</h5>
               <div
-                className={`row row-cols-2  row-cols-md-4 w-100 ${
-                  isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+                className={`grid grid-cols-2 md:grid-cols-4 w-100 ${
+                  isMobileView ? "flex-wrap" : "flex-nowrap "
                 }`}
               >
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">Cooling</p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">
                     {main_data.AirConditioning}
                   </p>
                 </div>
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">
                     Heat source
                   </p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">
                     {main_data?.HeatSource}
                   </p>
                 </div>
               </div>
               <div
-                className={`row row-cols-2  row-cols-md-4 w-100 ${
-                  isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+                className={`grid grid-cols-2  md:grid-cols-4 w-100 ${
+                  isMobileView ? "flex-wrap" : "flex-nowrap "
                 }`}
               >
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">Heat type</p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">
                     {main_data?.HeatType}
                   </p>
                 </div>
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">Sewers</p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">{main_data?.Sewers}</p>
                 </div>
               </div>
@@ -656,60 +680,60 @@ const PropertyPage = ({ main_data }) => {
               {/* Location */}
               <h5 className="py-2 font-bold pt-5">Location</h5>
               <div
-                className={`row row-cols-2  row-cols-md-4 w-100 ${
-                  isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+                className={`grid grid-cols-2  md:grid-cols-4 w-100 ${
+                  isMobileView ? "flex-wrap" : "flex-nowrap "
                 }`}
               >
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">
                     Water source
                   </p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">{main_data.Water}</p>
                 </div>
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">Area</p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">{main_data.Area}</p>
                 </div>
               </div>
               <div
-                className={`row row-cols-2  row-cols-md-4 w-100 ${
-                  isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+                className={`grid grid-cols-2  md:grid-cols-4 w-100 ${
+                  isMobileView ? "flex-wrap" : "flex-nowrap "
                 }`}
               >
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">Community</p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">
                     {main_data.Community}
                   </p>
                 </div>
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">
                     Community features
                   </p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">
                     {getCommunityFeatures()}
                   </p>
                 </div>
               </div>
               <div
-                className={`row row-cols-2  row-cols-md-4 w-100 ${
-                  isMobileView ? "flex-wrap" : "flex-nowrap prp-gap"
+                className={`grid grid-cols-2  md:grid-cols-4 w-100 ${
+                  isMobileView ? "flex-wrap" : "flex-nowrap "
                 }`}
               >
-                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pr-0">
+                <div className="col-7 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pr-0">
                   <p className="cardd-subtitle_bg-black font-bold">
                     Directions
                   </p>
                 </div>
-                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 py-md-3 pl-0">
+                <div className="col-5 col-md border-b-[0.1px] border-gray-200 py-2 md:py-3 pl-0">
                   <p className="cardd-subtitle_bg-black">
                     {main_data.DirectionsCrossStreets}
                   </p>
@@ -718,18 +742,24 @@ const PropertyPage = ({ main_data }) => {
             </div>
             {/* see more */}
 
-            <div className="pt-3">
+            {/* <div className="pt-3">
               <Collapse> </Collapse>
-            </div>
+            </div> */}
+            <button
+              onClick={() => setCollapse(!collapse)}
+              className="font-bold"
+            >
+              See {collapse ? "More" : "Less"}
+            </button>
           </div>
         </div>
         {/* Extras */}
         {main_data?.Extras && (
           <div className={`${isMobileView ? "pt-4 pb-4" : "pt-4 pb-4"}`}>
             <div className="col-md-12 px-0">
-              <div className="container bg-light rounded-3 p-4 border-0">
+              <div className="container bg-gray-100 rounded-md p-4 border-0">
                 <h2 className="font-bold text-xl sm:text-xl">Extras</h2>
-                <div className="flex flex-row text-lg py-1 leading-8">
+                <div className="flex flex-grid text-lg py-1 leading-8">
                   {main_data.Extras}
                 </div>
               </div>

@@ -3,8 +3,8 @@ const TimingOption = ({ selected, setSelected, handleChange, timing }) => {
     <button
       className={`flex flex-col justify-center sm:py-2 py-1 items-center max-w-[95px] rounded-md cursor-pointer ${
         selected
-          ? `bg-light-lime text-black border-black border-2`
-          : ` border-gray-400 border-1 text-gray-800`
+          ? `bg-gray-100-lime text-black border-black border-2`
+          : ` border-gray-400 border-2 text-gray-800`
       } w-[100px]`}
       onClick={(e) => {
         handleChange(e);
